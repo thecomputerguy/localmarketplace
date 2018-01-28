@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.home.title">Service Delivery Offers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-service-delivery-offer-lmp" [routerLink]="['/', { outlets: { popup: ['service-delivery-offer-lmp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.home.createLabel">
+            Create new Service Delivery Offer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="serviceDeliveryOffers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="discountInPercentage"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.discountInPercentage">Discount In Percentage</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estimatedCost"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.estimatedCost">Estimated Cost</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="offerSubmitDate"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.offerSubmitDate">Offer Submit Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isOfferAccepted"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.isOfferAccepted">Is Offer Accepted</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceProviderMapId"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceProviderMap">Service Provider Map</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceRequestId"><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceRequest">Service Request</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let serviceDeliveryOffer of serviceDeliveryOffers ;trackBy: trackId">
+                <td><a [routerLink]="['../service-delivery-offer-lmp', serviceDeliveryOffer.id ]">{{serviceDeliveryOffer.id}}</a></td>
+                <td>{{serviceDeliveryOffer.discountInPercentage}}</td>
+                <td>{{serviceDeliveryOffer.estimatedCost}}</td>
+                <td>{{serviceDeliveryOffer.offerSubmitDate | date:'medium'}}</td>
+                <td>{{serviceDeliveryOffer.isOfferAccepted}}</td>
+                <td>
+                    <div *ngIf="serviceDeliveryOffer.serviceProviderMapId">
+                        <a [routerLink]="['../service-provider-map-lmp', serviceDeliveryOffer.serviceProviderMapId  ]" >{{serviceDeliveryOffer.serviceProviderMapId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="serviceDeliveryOffer.serviceRequestId">
+                        <a [routerLink]="['../service-request-lmp', serviceDeliveryOffer.serviceRequestId  ]" >{{serviceDeliveryOffer.serviceRequestId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../service-delivery-offer-lmp', serviceDeliveryOffer.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-delivery-offer-lmp/'+ serviceDeliveryOffer.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-delivery-offer-lmp/'+ serviceDeliveryOffer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

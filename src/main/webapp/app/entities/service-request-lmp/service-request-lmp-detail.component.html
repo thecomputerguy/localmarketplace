@@ -1,0 +1,44 @@
+
+<div *ngIf="serviceRequest">
+    <h2><span jhiTranslate="localmarketplaceApp.serviceRequest.detail.title">Service Request</span> {{serviceRequest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.requirementDescription">Requirement Description</span></dt>
+        <dd>
+            <span>{{serviceRequest.requirementDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.serviceRequiredOn">Service Required On</span></dt>
+        <dd>
+            <span>{{serviceRequest.serviceRequiredOn | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.expectedStartTime">Expected Start Time</span></dt>
+        <dd>
+            <span>{{serviceRequest.expectedStartTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.tentativeEffortsRequiredInHours">Tentative Efforts Required In Hours</span></dt>
+        <dd>
+            <span>{{serviceRequest.tentativeEffortsRequiredInHours}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="serviceRequest.customerId">
+                <a [routerLink]="['/customer-lmp', serviceRequest.customerId]">{{serviceRequest.customerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'service-request-lmp/'+ serviceRequest.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

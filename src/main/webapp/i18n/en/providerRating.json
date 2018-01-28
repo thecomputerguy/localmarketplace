@@ -1,0 +1,28 @@
+{
+    "localmarketplaceApp": {
+        "providerRating" : {
+            "home": {
+                "title": "Provider Ratings",
+                "createLabel": "Create a new Provider Rating",
+                "createOrEditLabel": "Create or edit a Provider Rating"
+            },
+            "created": "A new Provider Rating is created with identifier {{ param }}",
+            "updated": "A Provider Rating is updated with identifier {{ param }}",
+            "deleted": "A Provider Rating is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Provider Rating {{ id }}?"
+            },
+            "detail": {
+                "title": "Provider Rating"
+            },
+            "avgPunctualityRating": "Avg Punctuality Rating",
+            "avgProfRating": "Avg Prof Rating",
+            "avgEtiRating": "Avg Eti Rating",
+            "avgCommRating": "Avg Comm Rating",
+            "avgPriceRating": "Avg Price Rating",
+            "avgOverallRating": "Avg Overall Rating",
+            "lastUpdatedOn": "Last Updated On",
+            "provider": "Provider"
+        }
+    }
+}

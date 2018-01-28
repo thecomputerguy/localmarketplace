@@ -1,0 +1,60 @@
+
+<div *ngIf="providerReviewLog">
+    <h2><span jhiTranslate="localmarketplaceApp.providerReviewLog.detail.title">Provider Review Log</span> {{providerReviewLog.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.punctualityRating">Punctuality Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.punctualityRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.proficiencyRating">Proficiency Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.proficiencyRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.etiquattesRating">Etiquattes Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.etiquattesRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.communicationRating">Communication Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.communicationRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.priceRating">Price Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.priceRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.overallRating">Overall Rating</span></dt>
+        <dd>
+            <span>{{providerReviewLog.overallRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.review">Review</span></dt>
+        <dd>
+            <span>{{providerReviewLog.review}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.reviewDate">Review Date</span></dt>
+        <dd>
+            <span>{{providerReviewLog.reviewDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerReviewLog.serviceAppointment">Service Appointment</span></dt>
+        <dd>
+            <div *ngIf="providerReviewLog.serviceAppointmentId">
+                <a [routerLink]="['/service-appointment-lmp', providerReviewLog.serviceAppointmentId]">{{providerReviewLog.serviceAppointmentId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'provider-review-log-lmp/'+ providerReviewLog.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

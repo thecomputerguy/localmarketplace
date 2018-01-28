@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="localmarketplaceApp.providerReviewLog.home.title">Provider Review Logs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-provider-review-log-lmp" [routerLink]="['/', { outlets: { popup: ['provider-review-log-lmp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="localmarketplaceApp.providerReviewLog.home.createLabel">
+            Create new Provider Review Log
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="providerReviewLogs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="punctualityRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.punctualityRating">Punctuality Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="proficiencyRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.proficiencyRating">Proficiency Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="etiquattesRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.etiquattesRating">Etiquattes Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="communicationRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.communicationRating">Communication Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="priceRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.priceRating">Price Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="overallRating"><span jhiTranslate="localmarketplaceApp.providerReviewLog.overallRating">Overall Rating</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="review"><span jhiTranslate="localmarketplaceApp.providerReviewLog.review">Review</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="reviewDate"><span jhiTranslate="localmarketplaceApp.providerReviewLog.reviewDate">Review Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceAppointmentId"><span jhiTranslate="localmarketplaceApp.providerReviewLog.serviceAppointment">Service Appointment</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let providerReviewLog of providerReviewLogs ;trackBy: trackId">
+                <td><a [routerLink]="['../provider-review-log-lmp', providerReviewLog.id ]">{{providerReviewLog.id}}</a></td>
+                <td>{{providerReviewLog.punctualityRating}}</td>
+                <td>{{providerReviewLog.proficiencyRating}}</td>
+                <td>{{providerReviewLog.etiquattesRating}}</td>
+                <td>{{providerReviewLog.communicationRating}}</td>
+                <td>{{providerReviewLog.priceRating}}</td>
+                <td>{{providerReviewLog.overallRating}}</td>
+                <td>{{providerReviewLog.review}}</td>
+                <td>{{providerReviewLog.reviewDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="providerReviewLog.serviceAppointmentId">
+                        <a [routerLink]="['../service-appointment-lmp', providerReviewLog.serviceAppointmentId  ]" >{{providerReviewLog.serviceAppointmentId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../provider-review-log-lmp', providerReviewLog.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'provider-review-log-lmp/'+ providerReviewLog.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'provider-review-log-lmp/'+ providerReviewLog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="providerReviewLogs && providerReviewLogs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

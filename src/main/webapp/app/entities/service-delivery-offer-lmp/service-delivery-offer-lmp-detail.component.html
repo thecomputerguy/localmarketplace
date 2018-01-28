@@ -1,0 +1,50 @@
+
+<div *ngIf="serviceDeliveryOffer">
+    <h2><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.detail.title">Service Delivery Offer</span> {{serviceDeliveryOffer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.discountInPercentage">Discount In Percentage</span></dt>
+        <dd>
+            <span>{{serviceDeliveryOffer.discountInPercentage}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.estimatedCost">Estimated Cost</span></dt>
+        <dd>
+            <span>{{serviceDeliveryOffer.estimatedCost}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.offerSubmitDate">Offer Submit Date</span></dt>
+        <dd>
+            <span>{{serviceDeliveryOffer.offerSubmitDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.isOfferAccepted">Is Offer Accepted</span></dt>
+        <dd>
+            <span>{{serviceDeliveryOffer.isOfferAccepted}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceProviderMap">Service Provider Map</span></dt>
+        <dd>
+            <div *ngIf="serviceDeliveryOffer.serviceProviderMapId">
+                <a [routerLink]="['/service-provider-map-lmp', serviceDeliveryOffer.serviceProviderMapId]">{{serviceDeliveryOffer.serviceProviderMapId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceRequest">Service Request</span></dt>
+        <dd>
+            <div *ngIf="serviceDeliveryOffer.serviceRequestId">
+                <a [routerLink]="['/service-request-lmp', serviceDeliveryOffer.serviceRequestId]">{{serviceDeliveryOffer.serviceRequestId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'service-delivery-offer-lmp/'+ serviceDeliveryOffer.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

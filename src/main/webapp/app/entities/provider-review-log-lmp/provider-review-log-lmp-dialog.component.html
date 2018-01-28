@@ -1,0 +1,74 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProviderReviewLogLabel" jhiTranslate="localmarketplaceApp.providerReviewLog.home.createOrEditLabel">Create or edit a Provider Review Log</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!providerReviewLog.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="providerReviewLog.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.punctualityRating" for="field_punctualityRating">Punctuality Rating</label>
+            <input type="number" class="form-control" name="punctualityRating" id="field_punctualityRating"
+                [(ngModel)]="providerReviewLog.punctualityRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.proficiencyRating" for="field_proficiencyRating">Proficiency Rating</label>
+            <input type="number" class="form-control" name="proficiencyRating" id="field_proficiencyRating"
+                [(ngModel)]="providerReviewLog.proficiencyRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.etiquattesRating" for="field_etiquattesRating">Etiquattes Rating</label>
+            <input type="number" class="form-control" name="etiquattesRating" id="field_etiquattesRating"
+                [(ngModel)]="providerReviewLog.etiquattesRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.communicationRating" for="field_communicationRating">Communication Rating</label>
+            <input type="number" class="form-control" name="communicationRating" id="field_communicationRating"
+                [(ngModel)]="providerReviewLog.communicationRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.priceRating" for="field_priceRating">Price Rating</label>
+            <input type="number" class="form-control" name="priceRating" id="field_priceRating"
+                [(ngModel)]="providerReviewLog.priceRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.overallRating" for="field_overallRating">Overall Rating</label>
+            <input type="number" class="form-control" name="overallRating" id="field_overallRating"
+                [(ngModel)]="providerReviewLog.overallRating" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.review" for="field_review">Review</label>
+            <input type="number" class="form-control" name="review" id="field_review"
+                [(ngModel)]="providerReviewLog.review" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.reviewDate" for="field_reviewDate">Review Date</label>
+            <div class="d-flex">
+                <input id="field_reviewDate" type="datetime-local" class="form-control" name="reviewDate" [(ngModel)]="providerReviewLog.reviewDate"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.providerReviewLog.serviceAppointment" for="field_serviceAppointment">Service Appointment</label>
+            <select class="form-control" id="field_serviceAppointment" name="serviceAppointment" [(ngModel)]="providerReviewLog.serviceAppointmentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="serviceAppointmentOption.id" *ngFor="let serviceAppointmentOption of serviceappointments; trackBy: trackServiceAppointmentById">{{serviceAppointmentOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

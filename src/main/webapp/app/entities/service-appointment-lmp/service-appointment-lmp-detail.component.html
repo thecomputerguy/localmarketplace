@@ -1,0 +1,40 @@
+
+<div *ngIf="serviceAppointment">
+    <h2><span jhiTranslate="localmarketplaceApp.serviceAppointment.detail.title">Service Appointment</span> {{serviceAppointment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceDeliverOn">Service Deliver On</span></dt>
+        <dd>
+            <span>{{serviceAppointment.serviceDeliverOn | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceStartTime">Service Start Time</span></dt>
+        <dd>
+            <span>{{serviceAppointment.serviceStartTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceEndTime">Service End Time</span></dt>
+        <dd>
+            <span>{{serviceAppointment.serviceEndTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceDeliveryOffer">Service Delivery Offer</span></dt>
+        <dd>
+            <div *ngIf="serviceAppointment.serviceDeliveryOfferId">
+                <a [routerLink]="['/service-delivery-offer-lmp', serviceAppointment.serviceDeliveryOfferId]">{{serviceAppointment.serviceDeliveryOfferId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'service-appointment-lmp/'+ serviceAppointment.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

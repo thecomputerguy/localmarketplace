@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "provider",
+            "otherEntityName": "provider",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "service",
+            "otherEntityName": "service",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceDeliveryOffers",
+            "otherEntityName": "serviceDeliveryOffer",
+            "otherEntityRelationshipName": "serviceProviderMap"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "billingRatePerHour",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "experienceInMonths",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "serviceOfferingDescription",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180114073110",
+    "javadoc": "The ServiceProviderMap entity.",
+    "entityTableName": "service_provider_map",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

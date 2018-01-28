@@ -1,0 +1,132 @@
+
+
+entity Provider {
+	id Long,
+    firstName String,
+    lastName String,
+    email String,
+    mobileNumber Long,
+    isIndividual Boolean,
+    isRegisteredOffice Boolean,
+    officeAddress String,
+    zip Long,
+    description String
+}
+
+entity ProviderRating {
+    id Long,
+    avgPunctualityRating Long,
+    avgProfRating Long,
+    avgEtiRating Long,
+    avgCommRating Long,
+    avgPriceRating Long,
+    avgOverallRating Long,
+    lastUpdatedOn Long
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity ProviderReviewLog {
+	id Long,
+	punctualityRating Long,
+	proficiencyRating Long,
+	etiquattesRating Long,
+    communicationRating Long,
+    priceRating Long,
+    overallRating Long,
+    review Long,
+    reviewDate Instant
+}
+
+entity ServiceCategory {
+	id Long,
+    categoryName String
+}
+
+/**
+ * Service entity.
+ * @author Varun Sharma.
+ */
+entity Service {
+	id Long,
+	serviceName String
+}
+
+/**
+ * The ServiceProviderMap entity.
+ */
+entity ServiceProviderMap {
+	id Long,
+	billingRatePerHour Long,
+	experienceInMonths Long,
+	serviceOfferingDescription String,
+}
+
+entity Customer {
+	id Long,
+	firstName String,
+	lastName String,
+    email String,
+    mobileNumber Long
+}
+
+entity Address {
+	id Long,
+	streetAddress String,
+	city String,
+    State String,
+    country String,
+    zip Long
+}
+
+
+entity ServiceDeliveryOffer{
+    id Long,
+    discountInPercentage Double,
+    estimatedCost Double,
+    offerSubmitDate Instant,
+    isOfferAccepted Boolean
+}
+
+entity ServiceRequest{
+    id Long,
+    requirementDescription String,
+    serviceRequiredOn Instant,
+    expectedStartTime Instant,
+    tentativeEffortsRequiredInHours Long
+}
+
+entity ServiceAppointment{
+    id Long,
+    serviceDeliverOn Instant,
+    serviceStartTime Instant,
+    serviceEndTime Instant
+}
+
+
+//relationship between all the entities
+
+relationship OneToMany {
+	Provider{ratings} to ProviderRating,
+    ServiceCategory{services} to Service,
+    Service{serviceProviderMap} to ServiceProviderMap
+    Provider{serviceProviderMap} to ServiceProviderMap
+    ServiceProviderMap{serviceDeliveryOffers} to ServiceDeliveryOffer
+    Customer{addresses} to Address
+    Customer{serviceRequests} to ServiceRequest
+    ServiceRequest{serviceDeliveryOffers} to ServiceDeliveryOffer
+    ServiceDeliveryOffer{serviceAppointments} to ServiceAppointment
+    ServiceAppointment{providerReviewLogs} to ProviderReviewLog
+}
+
+
+// Set pagination options
+paginate Provider, ProviderRating,ServiceCategory,Service,ServiceProviderMap,ServiceDeliveryOffer with infinite-scroll
+paginate Customer,Address,ServiceRequest,ServiceAppointment,ProviderReviewLog with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with lmp

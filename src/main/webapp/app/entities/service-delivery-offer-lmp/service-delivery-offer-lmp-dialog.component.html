@@ -1,0 +1,61 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myServiceDeliveryOfferLabel" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.home.createOrEditLabel">Create or edit a Service Delivery Offer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!serviceDeliveryOffer.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="serviceDeliveryOffer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.discountInPercentage" for="field_discountInPercentage">Discount In Percentage</label>
+            <input type="number" class="form-control" name="discountInPercentage" id="field_discountInPercentage"
+                [(ngModel)]="serviceDeliveryOffer.discountInPercentage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.estimatedCost" for="field_estimatedCost">Estimated Cost</label>
+            <input type="number" class="form-control" name="estimatedCost" id="field_estimatedCost"
+                [(ngModel)]="serviceDeliveryOffer.estimatedCost" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.offerSubmitDate" for="field_offerSubmitDate">Offer Submit Date</label>
+            <div class="d-flex">
+                <input id="field_offerSubmitDate" type="datetime-local" class="form-control" name="offerSubmitDate" [(ngModel)]="serviceDeliveryOffer.offerSubmitDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.isOfferAccepted" for="field_isOfferAccepted">Is Offer Accepted</label>
+            <input type="checkbox" class="form-control" name="isOfferAccepted" id="field_isOfferAccepted"
+                [(ngModel)]="serviceDeliveryOffer.isOfferAccepted" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceProviderMap" for="field_serviceProviderMap">Service Provider Map</label>
+            <select class="form-control" id="field_serviceProviderMap" name="serviceProviderMap" [(ngModel)]="serviceDeliveryOffer.serviceProviderMapId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="serviceProviderMapOption.id" *ngFor="let serviceProviderMapOption of serviceprovidermaps; trackBy: trackServiceProviderMapById">{{serviceProviderMapOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceDeliveryOffer.serviceRequest" for="field_serviceRequest">Service Request</label>
+            <select class="form-control" id="field_serviceRequest" name="serviceRequest" [(ngModel)]="serviceDeliveryOffer.serviceRequestId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="serviceRequestOption.id" *ngFor="let serviceRequestOption of servicerequests; trackBy: trackServiceRequestById">{{serviceRequestOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

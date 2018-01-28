@@ -1,0 +1,26 @@
+{
+    "localmarketplaceApp": {
+        "serviceProviderMap" : {
+            "home": {
+                "title": "Service Provider Maps",
+                "createLabel": "Create a new Service Provider Map",
+                "createOrEditLabel": "Create or edit a Service Provider Map"
+            },
+            "created": "A new Service Provider Map is created with identifier {{ param }}",
+            "updated": "A Service Provider Map is updated with identifier {{ param }}",
+            "deleted": "A Service Provider Map is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Provider Map {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Provider Map"
+            },
+            "billingRatePerHour": "Billing Rate Per Hour",
+            "experienceInMonths": "Experience In Months",
+            "serviceOfferingDescription": "Service Offering Description",
+            "provider": "Provider",
+            "service": "Service",
+            "serviceDeliveryOffers": "Service Delivery Offers"
+        }
+    }
+}

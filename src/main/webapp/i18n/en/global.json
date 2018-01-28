@@ -7,6 +7,17 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "providerLmp": "Provider",
+                "providerRatingLmp": "Provider Rating",
+                "providerReviewLogLmp": "Provider Review Log",
+                "serviceCategoryLmp": "Service Category",
+                "serviceLmp": "Service",
+                "serviceProviderMapLmp": "Service Provider Map",
+                "customerLmp": "Customer",
+                "addressLmp": "Address",
+                "serviceDeliveryOfferLmp": "Service Delivery Offer",
+                "serviceRequestLmp": "Service Request",
+                "serviceAppointmentLmp": "Service Appointment",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

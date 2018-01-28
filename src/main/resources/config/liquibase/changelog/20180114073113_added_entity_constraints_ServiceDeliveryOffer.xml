@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ServiceDeliveryOffer.
+    -->
+    <changeSet id="20180114073113-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="service_provider_map_id"
+                                 baseTableName="service_delivery_offer"
+                                 constraintName="fk_service_delivery_offer_service_provider_map_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_provider_map"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_request_id"
+                                 baseTableName="service_delivery_offer"
+                                 constraintName="fk_service_delivery_offer_service_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_request"/>
+
+    </changeSet>
+</databaseChangeLog>

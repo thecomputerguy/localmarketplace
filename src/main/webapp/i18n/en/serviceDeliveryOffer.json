@@ -1,0 +1,27 @@
+{
+    "localmarketplaceApp": {
+        "serviceDeliveryOffer" : {
+            "home": {
+                "title": "Service Delivery Offers",
+                "createLabel": "Create a new Service Delivery Offer",
+                "createOrEditLabel": "Create or edit a Service Delivery Offer"
+            },
+            "created": "A new Service Delivery Offer is created with identifier {{ param }}",
+            "updated": "A Service Delivery Offer is updated with identifier {{ param }}",
+            "deleted": "A Service Delivery Offer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Delivery Offer {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Delivery Offer"
+            },
+            "discountInPercentage": "Discount In Percentage",
+            "estimatedCost": "Estimated Cost",
+            "offerSubmitDate": "Offer Submit Date",
+            "isOfferAccepted": "Is Offer Accepted",
+            "serviceProviderMap": "Service Provider Map",
+            "serviceAppointments": "Service Appointments",
+            "serviceRequest": "Service Request"
+        }
+    }
+}

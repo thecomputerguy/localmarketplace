@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="localmarketplaceApp.service.home.title">Services</span>
+        <button class="btn btn-primary float-right jh-create-entity create-service-lmp" [routerLink]="['/', { outlets: { popup: ['service-lmp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="localmarketplaceApp.service.home.createLabel">
+            Create new Service
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="services">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceName"><span jhiTranslate="localmarketplaceApp.service.serviceName">Service Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceCategoryId"><span jhiTranslate="localmarketplaceApp.service.serviceCategory">Service Category</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let service of services ;trackBy: trackId">
+                <td><a [routerLink]="['../service-lmp', service.id ]">{{service.id}}</a></td>
+                <td>{{service.serviceName}}</td>
+                <td>
+                    <div *ngIf="service.serviceCategoryId">
+                        <a [routerLink]="['../service-category-lmp', service.serviceCategoryId  ]" >{{service.serviceCategoryId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../service-lmp', service.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-lmp/'+ service.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-lmp/'+ service.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ratings",
+            "otherEntityName": "providerRating",
+            "otherEntityRelationshipName": "provider"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceProviderMap",
+            "otherEntityName": "serviceProviderMap",
+            "otherEntityRelationshipName": "provider"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobileNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isIndividual",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isRegisteredOffice",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "officeAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zip",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180114073105",
+    "entityTableName": "provider",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

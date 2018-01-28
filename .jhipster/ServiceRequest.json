@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceDeliveryOffers",
+            "otherEntityName": "serviceDeliveryOffer",
+            "otherEntityRelationshipName": "serviceRequest"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "requirementDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceRequiredOn",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "expectedStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "tentativeEffortsRequiredInHours",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180114073114",
+    "entityTableName": "service_request",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

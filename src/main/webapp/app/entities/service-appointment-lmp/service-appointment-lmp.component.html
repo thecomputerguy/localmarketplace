@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="localmarketplaceApp.serviceAppointment.home.title">Service Appointments</span>
+        <button class="btn btn-primary float-right jh-create-entity create-service-appointment-lmp" [routerLink]="['/', { outlets: { popup: ['service-appointment-lmp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="localmarketplaceApp.serviceAppointment.home.createLabel">
+            Create new Service Appointment
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="serviceAppointments">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceDeliverOn"><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceDeliverOn">Service Deliver On</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceStartTime"><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceStartTime">Service Start Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceEndTime"><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceEndTime">Service End Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceDeliveryOfferId"><span jhiTranslate="localmarketplaceApp.serviceAppointment.serviceDeliveryOffer">Service Delivery Offer</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let serviceAppointment of serviceAppointments ;trackBy: trackId">
+                <td><a [routerLink]="['../service-appointment-lmp', serviceAppointment.id ]">{{serviceAppointment.id}}</a></td>
+                <td>{{serviceAppointment.serviceDeliverOn | date:'medium'}}</td>
+                <td>{{serviceAppointment.serviceStartTime | date:'medium'}}</td>
+                <td>{{serviceAppointment.serviceEndTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="serviceAppointment.serviceDeliveryOfferId">
+                        <a [routerLink]="['../service-delivery-offer-lmp', serviceAppointment.serviceDeliveryOfferId  ]" >{{serviceAppointment.serviceDeliveryOfferId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../service-appointment-lmp', serviceAppointment.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-appointment-lmp/'+ serviceAppointment.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-appointment-lmp/'+ serviceAppointment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="serviceAppointments && serviceAppointments.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

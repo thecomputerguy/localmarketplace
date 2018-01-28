@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "serviceAppointment",
+            "otherEntityName": "serviceAppointment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "punctualityRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "proficiencyRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "etiquattesRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "communicationRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "priceRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "overallRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "review",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reviewDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180114073107",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "provider_review_log",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

@@ -1,0 +1,56 @@
+
+<div *ngIf="providerRating">
+    <h2><span jhiTranslate="localmarketplaceApp.providerRating.detail.title">Provider Rating</span> {{providerRating.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgPunctualityRating">Avg Punctuality Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgPunctualityRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgProfRating">Avg Prof Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgProfRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgEtiRating">Avg Eti Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgEtiRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgCommRating">Avg Comm Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgCommRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgPriceRating">Avg Price Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgPriceRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.avgOverallRating">Avg Overall Rating</span></dt>
+        <dd>
+            <span>{{providerRating.avgOverallRating}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.lastUpdatedOn">Last Updated On</span></dt>
+        <dd>
+            <span>{{providerRating.lastUpdatedOn}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.providerRating.provider">Provider</span></dt>
+        <dd>
+            <div *ngIf="providerRating.providerId">
+                <a [routerLink]="['/provider-lmp', providerRating.providerId]">{{providerRating.providerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'provider-rating-lmp/'+ providerRating.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

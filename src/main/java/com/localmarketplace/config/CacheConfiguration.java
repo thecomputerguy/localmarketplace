@@ -45,6 +45,27 @@ public class CacheConfiguration {
             cm.createCache(com.localmarketplace.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Provider.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Provider.class.getName() + ".ratings", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Provider.class.getName() + ".serviceProviderMaps", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ProviderRating.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ProviderReviewLog.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceCategory.class.getName() + ".services", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Service.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Service.class.getName() + ".serviceProviderMaps", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceProviderMap.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceProviderMap.class.getName() + ".serviceDeliveryOffers", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Customer.class.getName() + ".addresses", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Customer.class.getName() + ".serviceRequests", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Address.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceDeliveryOffer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceDeliveryOffer.class.getName() + ".serviceAppointments", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceRequest.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceRequest.class.getName() + ".serviceDeliveryOffers", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceAppointment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.ServiceAppointment.class.getName() + ".providerReviewLogs", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

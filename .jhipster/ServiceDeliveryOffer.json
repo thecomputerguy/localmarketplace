@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "serviceProviderMap",
+            "otherEntityName": "serviceProviderMap",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceAppointments",
+            "otherEntityName": "serviceAppointment",
+            "otherEntityRelationshipName": "serviceDeliveryOffer"
+        },
+        {
+            "relationshipName": "serviceRequest",
+            "otherEntityName": "serviceRequest",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "discountInPercentage",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "estimatedCost",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "offerSubmitDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "isOfferAccepted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180114073113",
+    "entityTableName": "service_delivery_offer",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

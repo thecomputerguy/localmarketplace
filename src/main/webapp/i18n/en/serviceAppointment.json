@@ -1,0 +1,25 @@
+{
+    "localmarketplaceApp": {
+        "serviceAppointment" : {
+            "home": {
+                "title": "Service Appointments",
+                "createLabel": "Create a new Service Appointment",
+                "createOrEditLabel": "Create or edit a Service Appointment"
+            },
+            "created": "A new Service Appointment is created with identifier {{ param }}",
+            "updated": "A Service Appointment is updated with identifier {{ param }}",
+            "deleted": "A Service Appointment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Appointment {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Appointment"
+            },
+            "serviceDeliverOn": "Service Deliver On",
+            "serviceStartTime": "Service Start Time",
+            "serviceEndTime": "Service End Time",
+            "serviceDeliveryOffer": "Service Delivery Offer",
+            "providerReviewLogs": "Provider Review Logs"
+        }
+    }
+}

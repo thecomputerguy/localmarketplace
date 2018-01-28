@@ -1,0 +1,48 @@
+
+<div *ngIf="address">
+    <h2><span jhiTranslate="localmarketplaceApp.address.detail.title">Address</span> {{address.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.address.streetAddress">Street Address</span></dt>
+        <dd>
+            <span>{{address.streetAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.address.city">City</span></dt>
+        <dd>
+            <span>{{address.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.address.state">State</span></dt>
+        <dd>
+            <span>{{address.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.address.country">Country</span></dt>
+        <dd>
+            <span>{{address.country}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.address.zip">Zip</span></dt>
+        <dd>
+            <span>{{address.zip}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.address.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="address.customerId">
+                <a [routerLink]="['/customer-lmp', address.customerId]">{{address.customerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'address-lmp/'+ address.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

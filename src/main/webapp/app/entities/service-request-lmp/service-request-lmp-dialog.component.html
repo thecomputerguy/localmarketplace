@@ -1,0 +1,56 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myServiceRequestLabel" jhiTranslate="localmarketplaceApp.serviceRequest.home.createOrEditLabel">Create or edit a Service Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!serviceRequest.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="serviceRequest.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceRequest.requirementDescription" for="field_requirementDescription">Requirement Description</label>
+            <input type="text" class="form-control" name="requirementDescription" id="field_requirementDescription"
+                [(ngModel)]="serviceRequest.requirementDescription" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceRequest.serviceRequiredOn" for="field_serviceRequiredOn">Service Required On</label>
+            <div class="d-flex">
+                <input id="field_serviceRequiredOn" type="datetime-local" class="form-control" name="serviceRequiredOn" [(ngModel)]="serviceRequest.serviceRequiredOn"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceRequest.expectedStartTime" for="field_expectedStartTime">Expected Start Time</label>
+            <div class="d-flex">
+                <input id="field_expectedStartTime" type="datetime-local" class="form-control" name="expectedStartTime" [(ngModel)]="serviceRequest.expectedStartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceRequest.tentativeEffortsRequiredInHours" for="field_tentativeEffortsRequiredInHours">Tentative Efforts Required In Hours</label>
+            <input type="number" class="form-control" name="tentativeEffortsRequiredInHours" id="field_tentativeEffortsRequiredInHours"
+                [(ngModel)]="serviceRequest.tentativeEffortsRequiredInHours" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceRequest.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="serviceRequest.customerId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

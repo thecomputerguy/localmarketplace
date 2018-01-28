@@ -1,0 +1,46 @@
+
+<div *ngIf="serviceProviderMap">
+    <h2><span jhiTranslate="localmarketplaceApp.serviceProviderMap.detail.title">Service Provider Map</span> {{serviceProviderMap.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="localmarketplaceApp.serviceProviderMap.billingRatePerHour">Billing Rate Per Hour</span></dt>
+        <dd>
+            <span>{{serviceProviderMap.billingRatePerHour}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceProviderMap.experienceInMonths">Experience In Months</span></dt>
+        <dd>
+            <span>{{serviceProviderMap.experienceInMonths}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceProviderMap.serviceOfferingDescription">Service Offering Description</span></dt>
+        <dd>
+            <span>{{serviceProviderMap.serviceOfferingDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceProviderMap.provider">Provider</span></dt>
+        <dd>
+            <div *ngIf="serviceProviderMap.providerId">
+                <a [routerLink]="['/provider-lmp', serviceProviderMap.providerId]">{{serviceProviderMap.providerId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="localmarketplaceApp.serviceProviderMap.service">Service</span></dt>
+        <dd>
+            <div *ngIf="serviceProviderMap.serviceId">
+                <a [routerLink]="['/service-lmp', serviceProviderMap.serviceId]">{{serviceProviderMap.serviceId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'service-provider-map-lmp/'+ serviceProviderMap.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

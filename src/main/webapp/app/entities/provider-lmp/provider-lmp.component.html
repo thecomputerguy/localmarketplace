@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="localmarketplaceApp.provider.home.title">Providers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-provider-lmp" [routerLink]="['/', { outlets: { popup: ['provider-lmp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="localmarketplaceApp.provider.home.createLabel">
+            Create new Provider
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="providers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="localmarketplaceApp.provider.firstName">First Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="localmarketplaceApp.provider.lastName">Last Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="localmarketplaceApp.provider.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mobileNumber"><span jhiTranslate="localmarketplaceApp.provider.mobileNumber">Mobile Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isIndividual"><span jhiTranslate="localmarketplaceApp.provider.isIndividual">Is Individual</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isRegisteredOffice"><span jhiTranslate="localmarketplaceApp.provider.isRegisteredOffice">Is Registered Office</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="officeAddress"><span jhiTranslate="localmarketplaceApp.provider.officeAddress">Office Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="zip"><span jhiTranslate="localmarketplaceApp.provider.zip">Zip</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="localmarketplaceApp.provider.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let provider of providers ;trackBy: trackId">
+                <td><a [routerLink]="['../provider-lmp', provider.id ]">{{provider.id}}</a></td>
+                <td>{{provider.firstName}}</td>
+                <td>{{provider.lastName}}</td>
+                <td>{{provider.email}}</td>
+                <td>{{provider.mobileNumber}}</td>
+                <td>{{provider.isIndividual}}</td>
+                <td>{{provider.isRegisteredOffice}}</td>
+                <td>{{provider.officeAddress}}</td>
+                <td>{{provider.zip}}</td>
+                <td>{{provider.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../provider-lmp', provider.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'provider-lmp/'+ provider.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'provider-lmp/'+ provider.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

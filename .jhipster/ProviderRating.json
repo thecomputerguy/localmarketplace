@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "provider",
+            "otherEntityName": "provider",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "avgPunctualityRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "avgProfRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "avgEtiRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "avgCommRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "avgPriceRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "avgOverallRating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastUpdatedOn",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180114073106",
+    "entityTableName": "provider_rating",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

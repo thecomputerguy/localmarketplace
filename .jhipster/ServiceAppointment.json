@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "serviceDeliveryOffer",
+            "otherEntityName": "serviceDeliveryOffer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "providerReviewLogs",
+            "otherEntityName": "providerReviewLog",
+            "otherEntityRelationshipName": "serviceAppointment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "serviceDeliverOn",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "serviceStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "serviceEndTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180114073115",
+    "entityTableName": "service_appointment",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}

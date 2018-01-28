@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "serviceCategory",
+            "otherEntityName": "serviceCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceProviderMap",
+            "otherEntityName": "serviceProviderMap",
+            "otherEntityRelationshipName": "service"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "serviceName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180114073109",
+    "javadoc": "Service entity.\n@author Varun Sharma.",
+    "entityTableName": "service",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "lmp"
+}
