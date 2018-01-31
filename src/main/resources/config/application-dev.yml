@@ -50,7 +50,7 @@ spring:
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
     mail:
         host: localhost
-        port: 1025
+        port: 25
         username:
         password:
     messages:
@@ -108,7 +108,7 @@ jhipster:
             key: c3882ce65bac975c8de21b97f64461ca56a8391c
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: localmarketplace@localhost
-        base-url: http://127.0.0.1:8080
+        base-url: http://127.0.0.1:9096
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite: # Use the "graphite" Maven profile to have the Graphite dependencies
