@@ -16,7 +16,8 @@ export class JhiLoginModalComponent implements AfterViewInit {
     rememberMe: boolean;
     username: string;
     credentials: any;
-
+	ajaxAuthenticationErrorMessage: any;
+	
     constructor(
         private eventManager: JhiEventManager,
         private loginService: LoginService,
@@ -69,6 +70,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
                 this.router.navigate([redirect]);
             }
         }).catch(() => {
+        	this.ajaxAuthenticationErrorMessage = JSON.parse(error._body).message;
             this.authenticationError = true;
         });
     }
