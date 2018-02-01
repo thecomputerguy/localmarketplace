@@ -8,14 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity ServiceProviderMap and its DTO ServiceProviderMapDTO.
  */
-@Mapper(componentModel = "spring", uses = {ProviderMapper.class, ServiceMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapperOther.class, ServiceMapper.class})
 public interface ServiceProviderMapMapper extends EntityMapper<ServiceProviderMapDTO, ServiceProviderMap> {
 
-    @Mapping(source = "provider.id", target = "providerId")
+    @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "service.id", target = "serviceId")
     ServiceProviderMapDTO toDto(ServiceProviderMap serviceProviderMap);
 
-    @Mapping(source = "providerId", target = "provider")
+    @Mapping(source = "userId", target = "user")
     @Mapping(source = "serviceId", target = "service")
     @Mapping(target = "serviceDeliveryOffers", ignore = true)
     ServiceProviderMap toEntity(ServiceProviderMapDTO serviceProviderMapDTO);

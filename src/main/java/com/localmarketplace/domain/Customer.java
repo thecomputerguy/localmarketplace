@@ -1,15 +1,15 @@
 package com.localmarketplace.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
 
 /**
  * A Customer.
@@ -25,7 +25,7 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name")
+   /* @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -46,7 +46,7 @@ public class Customer implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ServiceRequest> serviceRequests = new HashSet<>();
-
+*/
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -56,7 +56,7 @@ public class Customer implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
+ /*   public String getFirstName() {
         return firstName;
     }
 
@@ -188,5 +188,5 @@ public class Customer implements Serializable {
             ", email='" + getEmail() + "'" +
             ", mobileNumber=" + getMobileNumber() +
             "}";
-    }
+    }*/
 }

@@ -1,19 +1,20 @@
 package com.localmarketplace.config;
 
-import io.github.jhipster.config.JHipsterProperties;
+import java.util.concurrent.TimeUnit;
+
 import org.ehcache.config.builders.CacheConfigurationBuilder;
 import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.ehcache.expiry.Duration;
 import org.ehcache.expiry.Expirations;
 import org.ehcache.jsr107.Eh107Configuration;
-
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.github.jhipster.config.JHipsterProperties;
 
 @Configuration
 @EnableCaching
@@ -45,9 +46,9 @@ public class CacheConfiguration {
             cm.createCache(com.localmarketplace.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
-            cm.createCache(com.localmarketplace.domain.Provider.class.getName(), jcacheConfiguration);
+           /* cm.createCache(com.localmarketplace.domain.Provider.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.Provider.class.getName() + ".ratings", jcacheConfiguration);
-            cm.createCache(com.localmarketplace.domain.Provider.class.getName() + ".serviceProviderMaps", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Provider.class.getName() + ".serviceProviderMaps", jcacheConfiguration);*/
             cm.createCache(com.localmarketplace.domain.ProviderRating.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ProviderReviewLog.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ServiceCategory.class.getName(), jcacheConfiguration);
@@ -56,9 +57,9 @@ public class CacheConfiguration {
             cm.createCache(com.localmarketplace.domain.Service.class.getName() + ".serviceProviderMaps", jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ServiceProviderMap.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ServiceProviderMap.class.getName() + ".serviceDeliveryOffers", jcacheConfiguration);
-            cm.createCache(com.localmarketplace.domain.Customer.class.getName(), jcacheConfiguration);
+            /*cm.createCache(com.localmarketplace.domain.Customer.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.Customer.class.getName() + ".addresses", jcacheConfiguration);
-            cm.createCache(com.localmarketplace.domain.Customer.class.getName() + ".serviceRequests", jcacheConfiguration);
+            cm.createCache(com.localmarketplace.domain.Customer.class.getName() + ".serviceRequests", jcacheConfiguration);*/
             cm.createCache(com.localmarketplace.domain.Address.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ServiceDeliveryOffer.class.getName(), jcacheConfiguration);
             cm.createCache(com.localmarketplace.domain.ServiceDeliveryOffer.class.getName() + ".serviceAppointments", jcacheConfiguration);

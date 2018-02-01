@@ -23,7 +23,7 @@ public class AddressDTO implements Serializable {
 
     private Long zip;
 
-    private Long customerId;
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -73,15 +73,15 @@ public class AddressDTO implements Serializable {
         this.zip = zip;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+    public Long getUserId() {
+		return userId;
+	}
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

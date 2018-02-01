@@ -7,13 +7,11 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.actuate.audit.AuditEventRepository;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.localmarketplace.domain.Customer;
-import com.localmarketplace.domain.Provider;
 import com.localmarketplace.domain.ProviderRating;
 import com.localmarketplace.domain.ServiceRequest;
+import com.localmarketplace.domain.User;
 import com.localmarketplace.repository.AddressRepository;
 import com.localmarketplace.repository.CustomerRepository;
 import com.localmarketplace.repository.ProviderRatingRepository;
@@ -49,18 +47,18 @@ public class DatabaseInitializer implements CommandLineRunner {
 	@Override
 	public void run(String... arg0) throws Exception {
 		//Data to populate database when application starts....
-		Provider provider1 = new Provider();
-		Customer customer1 = new Customer();
-		Provider provider2 = new Provider();
-		Customer customer2 = new Customer();
-		Provider provider3 = new Provider();
+		User provider1 = new User();
+		User customer1 = new User();
+		User provider2 = new User();
+		User customer2 = new User();
+		/*Provider provider3 = new Provider();
 		Customer customer3 = new Customer();
 		Provider provider4 = new Provider();
 		Customer customer4 = new Customer();
 		Provider provider5 = new Provider();
 		Customer customer5 = new Customer();
 		Provider provider6 = new Provider();
-		Customer customer6 = new Customer();
+		Customer customer6 = new Customer();*/
 		//Provider rating for rating the provider....
 		Set<ProviderRating> providerRatings = new HashSet<>();
 		ProviderRating providerRating1 = new ProviderRating();
@@ -91,7 +89,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		provider1.setZip(411057L);
 		provider1.setOfficeAddress("hinjewadi");
 		
-		providerRating1.setProvider(provider1);
+		providerRating1.setUser(provider1);
 		providerRatings.add(providerRating1);
 		provider1.setRatings(providerRatings);
 		
@@ -105,12 +103,12 @@ public class DatabaseInitializer implements CommandLineRunner {
 		provider2.setZip(441057L);
 		provider2.setOfficeAddress("hinjewadi");
 		
-		providerRating2.setProvider(provider1);
+		providerRating2.setUser(provider1);
 		providerRatings.add(providerRating2);
 		provider2.setRatings(providerRatings);
 		
-		providerRepository.save(provider1);
-		providerRepository.save(provider2);
+		userRepository.save(provider1);
+		userRepository.save(provider2);
 		//Create customer objects and store them in database
 		Set<ServiceRequest> serviceRequests = new HashSet<>();
 		
@@ -121,7 +119,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		customer1.setServiceRequests(serviceRequests);
 		
 		ServiceRequest serviceRequest1 = new ServiceRequest();
-		serviceRequest1.setCustomer(customer1);
+		serviceRequest1.setUser(customer1);
 		serviceRequest1.setExpectedStartTime(Instant.now());
 		serviceRequest1.setRequirementDescription("Need kitchen sink to be fixed.");
 		serviceRequest1.setServiceDeliveryOffers(null);
@@ -130,11 +128,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		serviceRequests.add(serviceRequest1);
 		customer1.setServiceRequests(serviceRequests);
 		
-		customerRepository.save(customer1);
-		
-		
-		
-		
+		userRepository.save(customer1);
 		
 	}
 

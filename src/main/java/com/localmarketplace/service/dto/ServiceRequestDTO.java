@@ -1,10 +1,8 @@
 package com.localmarketplace.service.dto;
 
 
-import java.time.Instant;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -12,7 +10,12 @@ import java.util.Objects;
  */
 public class ServiceRequestDTO implements Serializable {
 
-    private Long id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
 
     private String requirementDescription;
 
@@ -22,7 +25,7 @@ public class ServiceRequestDTO implements Serializable {
 
     private Long tentativeEffortsRequiredInHours;
 
-    private Long customerId;
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -64,15 +67,15 @@ public class ServiceRequestDTO implements Serializable {
         this.tentativeEffortsRequiredInHours = tentativeEffortsRequiredInHours;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+    public Long getUserId() {
+		return userId;
+	}
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

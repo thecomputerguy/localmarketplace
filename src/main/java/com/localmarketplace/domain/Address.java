@@ -38,7 +38,8 @@ public class Address implements Serializable {
     private Long zip;
 
     @ManyToOne
-    private Customer customer;
+    @JoinColumn(name="user_id")
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -113,19 +114,21 @@ public class Address implements Serializable {
     public void setZip(Long zip) {
         this.zip = zip;
     }
+    
+    public User getUser() {
+		return user;
+	}
 
-    public Customer getCustomer() {
-        return customer;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public Address customer(Customer customer) {
-        this.customer = customer;
+	public Address user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

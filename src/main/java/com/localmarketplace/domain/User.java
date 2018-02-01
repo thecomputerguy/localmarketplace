@@ -98,7 +98,52 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
+    
+    //Fields from customer bean starts here...
+    @Column(name = "mobile_number")
+    private Long mobileNumber;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Address> addresses = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ServiceRequest> serviceRequests = new HashSet<>();
+
+    //Fields from customer bean ends here...
+    
+    //Fields from provider bean starts here...
+    @Column(name = "is_individual")
+    private Boolean isIndividual;
+
+    @Column(name = "is_registered_office")
+    private Boolean isRegisteredOffice;
+
+    @Column(name = "office_address")
+    private String officeAddress;
+
+    @Column(name = "zip")
+    private Long zip;
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ProviderRating> ratings = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ServiceProviderMap> serviceProviderMaps = new HashSet<>();
+
+    
+    //Fields from provider bean ends here...
+    
     public Long getId() {
         return id;
     }
@@ -211,8 +256,156 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;
     }
+    
+    public Long getMobileNumber() {
+		return mobileNumber;
+	}
 
-    @Override
+	public void setMobileNumber(Long mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	public Set<ServiceRequest> getServiceRequests() {
+		return serviceRequests;
+	}
+
+	public void setServiceRequests(Set<ServiceRequest> serviceRequests) {
+		this.serviceRequests = serviceRequests;
+	}
+	
+	public Boolean getIsIndividual() {
+		return isIndividual;
+	}
+
+	public void setIsIndividual(Boolean isIndividual) {
+		this.isIndividual = isIndividual;
+	}
+
+	public Boolean getIsRegisteredOffice() {
+		return isRegisteredOffice;
+	}
+
+	public void setIsRegisteredOffice(Boolean isRegisteredOffice) {
+		this.isRegisteredOffice = isRegisteredOffice;
+	}
+
+	public String getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public void setOfficeAddress(String officeAddress) {
+		this.officeAddress = officeAddress;
+	}
+
+	public Long getZip() {
+		return zip;
+	}
+
+	public void setZip(Long zip) {
+		this.zip = zip;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<ProviderRating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Set<ProviderRating> ratings) {
+		this.ratings = ratings;
+	}
+
+	public Set<ServiceProviderMap> getServiceProviderMaps() {
+		return serviceProviderMaps;
+	}
+
+	public void setServiceProviderMaps(Set<ServiceProviderMap> serviceProviderMaps) {
+		this.serviceProviderMaps = serviceProviderMaps;
+	}
+
+	public User addresses(Set<Address> addresses) {
+	        this.addresses = addresses;
+	        return this;
+	 }
+
+	 public User addAddresses(Address address) {
+	        this.addresses.add(address);
+	        address.setUser(this);
+	        return this;
+	 }
+
+	  public User removeAddresses(Address address) {
+	        this.addresses.remove(address);
+	        address.setUser(null);
+	        return this;
+	  }
+	  
+	  public User serviceRequests(Set<ServiceRequest> serviceRequests) {
+	        this.serviceRequests = serviceRequests;
+	        return this;
+	    }
+
+	    public User addServiceRequests(ServiceRequest serviceRequest) {
+	        this.serviceRequests.add(serviceRequest);
+	        serviceRequest.setUser(this);
+	        return this;
+	    }
+
+	    public User removeServiceRequests(ServiceRequest serviceRequest) {
+	        this.serviceRequests.remove(serviceRequest);
+	        serviceRequest.setUser(null);
+	        return this;
+	    }
+	    
+	    public User ratings(Set<ProviderRating> providerRatings) {
+	        this.ratings = providerRatings;
+	        return this;
+	    }
+
+	    public User addRatings(ProviderRating providerRating) {
+	        this.ratings.add(providerRating);
+	        providerRating.setUser(this);
+	        return this;
+	    }
+
+	    public User removeRatings(ProviderRating providerRating) {
+	        this.ratings.remove(providerRating);
+	        providerRating.setUser(null);
+	        return this;
+	    }
+	    
+	    public User serviceProviderMaps(Set<ServiceProviderMap> serviceProviderMaps) {
+	        this.serviceProviderMaps = serviceProviderMaps;
+	        return this;
+	    }
+
+	    public User addServiceProviderMap(ServiceProviderMap serviceProviderMap) {
+	        this.serviceProviderMaps.add(serviceProviderMap);
+	        serviceProviderMap.setUser(this);
+	        return this;
+	    }
+
+	    public User removeServiceProviderMap(ServiceProviderMap serviceProviderMap) {
+	        this.serviceProviderMaps.remove(serviceProviderMap);
+	        serviceProviderMap.setUser(null);
+	        return this;
+	    }
+	
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

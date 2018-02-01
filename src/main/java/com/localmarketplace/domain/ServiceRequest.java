@@ -39,7 +39,7 @@ public class ServiceRequest implements Serializable {
     private Long tentativeEffortsRequiredInHours;
 
     @ManyToOne
-    private Customer customer;
+    private User user;
 
     @OneToMany(mappedBy = "serviceRequest")
     @JsonIgnore
@@ -106,18 +106,18 @@ public class ServiceRequest implements Serializable {
     public void setTentativeEffortsRequiredInHours(Long tentativeEffortsRequiredInHours) {
         this.tentativeEffortsRequiredInHours = tentativeEffortsRequiredInHours;
     }
+    
+    public User getUser() {
+		return user;
+	}
 
-    public Customer getCustomer() {
-        return customer;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public ServiceRequest customer(Customer customer) {
-        this.customer = customer;
+	public ServiceRequest customer(User user) {
+        this.user = user;
         return this;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public Set<ServiceDeliveryOffer> getServiceDeliveryOffers() {

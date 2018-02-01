@@ -1,9 +1,10 @@
 package com.localmarketplace.service.mapper;
 
-import com.localmarketplace.domain.*;
-import com.localmarketplace.service.dto.CustomerDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import org.mapstruct.*;
+import com.localmarketplace.domain.Customer;
+import com.localmarketplace.service.dto.CustomerDTO;
 
 /**
  * Mapper for the entity Customer and its DTO CustomerDTO.
@@ -12,8 +13,8 @@ import org.mapstruct.*;
 public interface CustomerMapper extends EntityMapper<CustomerDTO, Customer> {
 
 
-    @Mapping(target = "addresses", ignore = true)
-    @Mapping(target = "serviceRequests", ignore = true)
+   /* @Mapping(target = "addresses", ignore = true)
+    @Mapping(target = "serviceRequests", ignore = true)*/
     Customer toEntity(CustomerDTO customerDTO);
 
     default Customer fromId(Long id) {

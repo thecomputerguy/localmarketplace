@@ -8,6 +8,7 @@ import com.localmarketplace.domain.User;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Column;
 import javax.validation.constraints.*;
 import java.time.Instant;
 import java.util.Set;
@@ -52,6 +53,21 @@ public class UserDTO {
     private Instant lastModifiedDate;
 
     private Set<String> authorities;
+    
+    @Column(name = "is_individual")
+    private Boolean isIndividual;
+
+    @Column(name = "is_registered_office")
+    private Boolean isRegisteredOffice;
+
+    @Column(name = "office_address")
+    private String officeAddress;
+
+    @Column(name = "zip")
+    private Long zip;
+
+    @Column(name = "description")
+    private String description;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -73,6 +89,11 @@ public class UserDTO {
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+        this.isIndividual = user.getIsIndividual();
+        this.isRegisteredOffice = user.getIsRegisteredOffice();
+        this.officeAddress = user.getOfficeAddress();
+        this.zip = user.getZip();
+        this.description = user.getDescription();
     }
 
     public Long getId() {
@@ -178,8 +199,48 @@ public class UserDTO {
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
     }
+    
+    public Boolean getIsIndividual() {
+		return isIndividual;
+	}
 
-    @Override
+	public void setIsIndividual(Boolean isIndividual) {
+		this.isIndividual = isIndividual;
+	}
+
+	public Boolean getIsRegisteredOffice() {
+		return isRegisteredOffice;
+	}
+
+	public void setIsRegisteredOffice(Boolean isRegisteredOffice) {
+		this.isRegisteredOffice = isRegisteredOffice;
+	}
+
+	public String getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public void setOfficeAddress(String officeAddress) {
+		this.officeAddress = officeAddress;
+	}
+
+	public Long getZip() {
+		return zip;
+	}
+
+	public void setZip(Long zip) {
+		this.zip = zip;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
     public String toString() {
         return "UserDTO{" +
             "login='" + login + '\'' +

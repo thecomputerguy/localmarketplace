@@ -19,7 +19,7 @@ public class ServiceProviderMapDTO implements Serializable {
 
     private String serviceOfferingDescription;
 
-    private Long providerId;
+    private Long userId;
 
     private Long serviceId;
 
@@ -55,15 +55,15 @@ public class ServiceProviderMapDTO implements Serializable {
         this.serviceOfferingDescription = serviceOfferingDescription;
     }
 
-    public Long getProviderId() {
-        return providerId;
-    }
+    public Long getUserId() {
+		return userId;
+	}
 
-    public void setProviderId(Long providerId) {
-        this.providerId = providerId;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    public Long getServiceId() {
+	public Long getServiceId() {
         return serviceId;
     }
 

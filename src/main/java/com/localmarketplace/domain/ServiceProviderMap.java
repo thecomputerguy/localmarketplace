@@ -37,7 +37,7 @@ public class ServiceProviderMap implements Serializable {
     private String serviceOfferingDescription;
 
     @ManyToOne
-    private Provider provider;
+    private User user;
 
     @ManyToOne
     private Service service;
@@ -95,17 +95,17 @@ public class ServiceProviderMap implements Serializable {
         this.serviceOfferingDescription = serviceOfferingDescription;
     }
 
-    public Provider getProvider() {
-        return provider;
+    public User getUser() {
+        return user;
     }
 
-    public ServiceProviderMap provider(Provider provider) {
-        this.provider = provider;
+    public ServiceProviderMap user(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Service getService() {

@@ -11,9 +11,9 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface ProviderMapper extends EntityMapper<ProviderDTO, Provider> {
 
-
+/*
     @Mapping(target = "ratings", ignore = true)
-    @Mapping(target = "serviceProviderMaps", ignore = true)
+    @Mapping(target = "serviceProviderMaps", ignore = true)*/
     Provider toEntity(ProviderDTO providerDTO);
 
     default Provider fromId(Long id) {

@@ -8,13 +8,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity ServiceRequest and its DTO ServiceRequestDTO.
  */
-@Mapper(componentModel = "spring", uses = {CustomerMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapperOther.class})
 public interface ServiceRequestMapper extends EntityMapper<ServiceRequestDTO, ServiceRequest> {
 
-    @Mapping(source = "customer.id", target = "customerId")
+    @Mapping(source = "user.id", target = "userId")
     ServiceRequestDTO toDto(ServiceRequest serviceRequest);
 
-    @Mapping(source = "customerId", target = "customer")
+    @Mapping(source = "userId", target = "user")
     @Mapping(target = "serviceDeliveryOffers", ignore = true)
     ServiceRequest toEntity(ServiceRequestDTO serviceRequestDTO);
 

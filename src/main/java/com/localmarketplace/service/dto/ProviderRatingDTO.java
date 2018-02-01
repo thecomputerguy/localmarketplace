@@ -27,7 +27,7 @@ public class ProviderRatingDTO implements Serializable {
 
     private Long lastUpdatedOn;
 
-    private Long providerId;
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -93,15 +93,15 @@ public class ProviderRatingDTO implements Serializable {
         this.lastUpdatedOn = lastUpdatedOn;
     }
 
-    public Long getProviderId() {
-        return providerId;
-    }
+    public Long getUserId() {
+		return userId;
+	}
 
-    public void setProviderId(Long providerId) {
-        this.providerId = providerId;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

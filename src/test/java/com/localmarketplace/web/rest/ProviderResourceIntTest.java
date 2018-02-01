@@ -41,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = LocalmarketplaceApp.class)
 public class ProviderResourceIntTest {
 
-    private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
+   /* private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
@@ -104,12 +104,12 @@ public class ProviderResourceIntTest {
             .setMessageConverters(jacksonMessageConverter).build();
     }
 
-    /**
+    *//**
      * Create an entity for this test.
      *
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
-     */
+     *//*
     public static Provider createEntity(EntityManager em) {
         Provider provider = new Provider()
             .firstName(DEFAULT_FIRST_NAME)
@@ -343,5 +343,5 @@ public class ProviderResourceIntTest {
     public void testEntityFromId() {
         assertThat(providerMapper.fromId(42L).getId()).isEqualTo(42);
         assertThat(providerMapper.fromId(null)).isNull();
-    }
+    }*/
 }

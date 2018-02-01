@@ -8,13 +8,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity ProviderRating and its DTO ProviderRatingDTO.
  */
-@Mapper(componentModel = "spring", uses = {ProviderMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapperOther.class})
 public interface ProviderRatingMapper extends EntityMapper<ProviderRatingDTO, ProviderRating> {
 
-    @Mapping(source = "provider.id", target = "providerId")
+    @Mapping(source = "user.id", target = "userId")
     ProviderRatingDTO toDto(ProviderRating providerRating);
 
-    @Mapping(source = "providerId", target = "provider")
+    @Mapping(source = "userId", target = "user")
     ProviderRating toEntity(ProviderRatingDTO providerRatingDTO);
 
     default ProviderRating fromId(Long id) {

@@ -44,7 +44,7 @@ public class ProviderRating implements Serializable {
     private Long lastUpdatedOn;
 
     @ManyToOne
-    private Provider provider;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -146,17 +146,17 @@ public class ProviderRating implements Serializable {
         this.lastUpdatedOn = lastUpdatedOn;
     }
 
-    public Provider getProvider() {
-        return provider;
+    public User getUser() {
+        return user;
     }
 
-    public ProviderRating provider(Provider provider) {
-        this.provider = provider;
+    public ProviderRating User(User user) {
+        this.user = user;
         return this;
     }
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    public void setUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
