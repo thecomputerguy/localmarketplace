@@ -1,4 +1,4 @@
-package com.localmarketplace.web.rest;
+/*package com.localmarketplace.web.rest;
 
 import com.localmarketplace.LocalmarketplaceApp;
 
@@ -32,16 +32,16 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
+*//**
  * Test class for the ProviderResource REST controller.
  *
  * @see ProviderResource
- */
+ *//*
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = LocalmarketplaceApp.class)
 public class ProviderResourceIntTest {
 
-   /* private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
+    private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
@@ -343,5 +343,6 @@ public class ProviderResourceIntTest {
     public void testEntityFromId() {
         assertThat(providerMapper.fromId(42L).getId()).isEqualTo(42);
         assertThat(providerMapper.fromId(null)).isNull();
-    }*/
+    }
 }
+*/

@@ -46,6 +46,16 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            <column name="description" type="varchar(250)"/>
+            <column name="is_individual" type="boolean" valueBoolean="true">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_registered_office" type="boolean" valueBoolean="false">
+                <constraints nullable="true" />
+            </column>
+            <column name="office_address" type="varchar(250)"/>
+            <column name="zip" type="bigint"/>
+            <column name="mobile_number" type="bigint"/>
         </createTable>
         <createIndex indexName="idx_user_login"
             tableName="jhi_user"

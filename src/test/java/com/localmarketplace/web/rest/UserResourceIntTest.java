@@ -70,6 +70,10 @@ public class UserResourceIntTest {
 
     private static final String DEFAULT_LANGKEY = "en";
     private static final String UPDATED_LANGKEY = "fr";
+    
+    private static final Boolean DEFAULT_IS_INDIVIDUAL = true;
+    private static final Boolean UPDATED_IS_REGISTERED_OFFICE = false;
+    
 
     @Autowired
     private UserRepository userRepository;
@@ -131,6 +135,8 @@ public class UserResourceIntTest {
         user.setLastName(DEFAULT_LASTNAME);
         user.setImageUrl(DEFAULT_IMAGEURL);
         user.setLangKey(DEFAULT_LANGKEY);
+        user.setIsIndividual(DEFAULT_IS_INDIVIDUAL);
+        user.setIsRegisteredOffice(UPDATED_IS_REGISTERED_OFFICE);
         return user;
     }
 

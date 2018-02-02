@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="VS00434136 (generated)" id="1517572803810-1">
+      <createTable tableName="address">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="addressPK"/>
+         </column>
+         <column name="city" type="VARCHAR(255)"/>
+         <column name="country" type="VARCHAR(255)"/>
+         <column name="state" type="VARCHAR(255)"/>
+         <column name="street_address" type="VARCHAR(255)"/>
+         <column name="zip" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-2">
+      <createTable tableName="customer">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="customerPK"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-3">
+      <createTable tableName="jhi_authority">
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-4">
+      <createTable tableName="jhi_persistent_audit_event">
+         <column autoIncrement="true" name="event_id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+         </column>
+         <column name="event_date" type="BINARY(255)"/>
+         <column name="event_type" type="VARCHAR(255)"/>
+         <column name="principal" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-5">
+      <createTable tableName="jhi_persistent_audit_evt_data">
+         <column name="event_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="value" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-6">
+      <createTable tableName="jhi_persistent_token">
+         <column name="series" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="ip_address" type="VARCHAR(39)"/>
+         <column name="token_date" type="BINARY(255)"/>
+         <column name="token_value" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="user_agent" type="VARCHAR(255)"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-7">
+      <createTable tableName="jhi_social_user_connection">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_social_user_connectionPK"/>
+         </column>
+         <column name="access_token" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="display_name" type="VARCHAR(255)"/>
+         <column name="expire_time" type="BIGINT"/>
+         <column name="image_url" type="VARCHAR(255)"/>
+         <column name="profile_url" type="VARCHAR(255)"/>
+         <column name="provider_id" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="provider_user_id" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="rank" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="refresh_token" type="VARCHAR(255)"/>
+         <column name="secret" type="VARCHAR(255)"/>
+         <column name="user_id" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-8">
+      <createTable tableName="jhi_user">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+         </column>
+         <column name="created_by" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="BINARY(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="last_modified_by" type="VARCHAR(50)"/>
+         <column name="last_modified_date" type="BINARY(255)"/>
+         <column name="activated" type="BOOLEAN">
+            <constraints nullable="false"/>
+         </column>
+         <column name="activation_key" type="VARCHAR(20)"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="email" type="VARCHAR(100)"/>
+         <column name="first_name" type="VARCHAR(50)"/>
+         <column name="image_url" type="VARCHAR(256)"/>
+         <column name="is_individual" type="BOOLEAN"/>
+         <column name="is_registered_office" type="BOOLEAN"/>
+         <column name="lang_key" type="VARCHAR(6)"/>
+         <column name="last_name" type="VARCHAR(50)"/>
+         <column name="login" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="mobile_number" type="BIGINT"/>
+         <column name="office_address" type="VARCHAR(255)"/>
+         <column name="password_hash" type="VARCHAR(60)"/>
+         <column name="reset_date" type="BINARY(255)"/>
+         <column name="reset_key" type="VARCHAR(20)"/>
+         <column name="zip" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-9">
+      <createTable tableName="jhi_user_authority">
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="authority_name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-10">
+      <createTable tableName="provider">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="providerPK"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-11">
+      <createTable tableName="provider_rating">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="provider_ratingPK"/>
+         </column>
+         <column name="avg_comm_rating" type="BIGINT"/>
+         <column name="avg_eti_rating" type="BIGINT"/>
+         <column name="avg_overall_rating" type="BIGINT"/>
+         <column name="avg_price_rating" type="BIGINT"/>
+         <column name="avg_prof_rating" type="BIGINT"/>
+         <column name="avg_punctuality_rating" type="BIGINT"/>
+         <column name="last_updated_on" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-12">
+      <createTable tableName="provider_review_log">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="provider_review_logPK"/>
+         </column>
+         <column name="communication_rating" type="BIGINT"/>
+         <column name="etiquattes_rating" type="BIGINT"/>
+         <column name="overall_rating" type="BIGINT"/>
+         <column name="price_rating" type="BIGINT"/>
+         <column name="proficiency_rating" type="BIGINT"/>
+         <column name="punctuality_rating" type="BIGINT"/>
+         <column name="review" type="BIGINT"/>
+         <column name="review_date" type="BINARY(255)"/>
+         <column name="service_appointment_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-13">
+      <createTable tableName="service">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="servicePK"/>
+         </column>
+         <column name="service_name" type="VARCHAR(255)"/>
+         <column name="service_category_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-14">
+      <createTable tableName="service_appointment">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="service_appointmentPK"/>
+         </column>
+         <column name="service_deliver_on" type="BINARY(255)"/>
+         <column name="service_end_time" type="BINARY(255)"/>
+         <column name="service_start_time" type="BINARY(255)"/>
+         <column name="service_delivery_offer_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-15">
+      <createTable tableName="service_category">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="service_categoryPK"/>
+         </column>
+         <column name="category_name" type="VARCHAR(255)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-16">
+      <createTable tableName="service_delivery_offer">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="service_delivery_offerPK"/>
+         </column>
+         <column name="discount_in_percentage" type="DOUBLE"/>
+         <column name="estimated_cost" type="DOUBLE"/>
+         <column name="is_offer_accepted" type="BOOLEAN"/>
+         <column name="offer_submit_date" type="BINARY(255)"/>
+         <column name="service_provider_map_id" type="BIGINT"/>
+         <column name="service_request_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-17">
+      <createTable tableName="service_provider_map">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="service_provider_mapPK"/>
+         </column>
+         <column name="billing_rate_per_hour" type="BIGINT"/>
+         <column name="experience_in_months" type="BIGINT"/>
+         <column name="service_offering_description" type="VARCHAR(255)"/>
+         <column name="service_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-18">
+      <createTable tableName="service_request">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="service_requestPK"/>
+         </column>
+         <column name="expected_start_time" type="BINARY(255)"/>
+         <column name="requirement_description" type="VARCHAR(255)"/>
+         <column name="service_required_on" type="BINARY(255)"/>
+         <column name="tentative_efforts_required_in_hours" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-19">
+      <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-20">
+      <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-21">
+      <addPrimaryKey columnNames="name"
+                     constraintName="jhi_authorityPK"
+                     tableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-22">
+      <addPrimaryKey columnNames="series"
+                     constraintName="jhi_persistent_tokenPK"
+                     tableName="jhi_persistent_token"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-23">
+      <addUniqueConstraint columnNames="email"
+                           constraintName="UC_JHI_USEREMAIL_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-24">
+      <addUniqueConstraint columnNames="login"
+                           constraintName="UC_JHI_USERLOGIN_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-25">
+      <addForeignKeyConstraint baseColumnNames="service_id"
+                               baseTableName="service_provider_map"
+                               constraintName="FK271yts4unk3va20psxjwyehyi"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-26">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK290okww5jujghp4el5i7mgwu0"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-27">
+      <addForeignKeyConstraint baseColumnNames="event_id"
+                               baseTableName="jhi_persistent_audit_evt_data"
+                               constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="event_id"
+                               referencedTableName="jhi_persistent_audit_event"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-28">
+      <addForeignKeyConstraint baseColumnNames="service_appointment_id"
+                               baseTableName="provider_review_log"
+                               constraintName="FK3mlpu36dolgbn142dmfwf7k0o"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service_appointment"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-29">
+      <addForeignKeyConstraint baseColumnNames="authority_name"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK4psxl0jtx6nr7rhqbynr6itoc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="name"
+                               referencedTableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-30">
+      <addForeignKeyConstraint baseColumnNames="service_provider_map_id"
+                               baseTableName="service_delivery_offer"
+                               constraintName="FK635pkgj3b63nm1ehpx9khay9r"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service_provider_map"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-31">
+      <addForeignKeyConstraint baseColumnNames="service_request_id"
+                               baseTableName="service_delivery_offer"
+                               constraintName="FK8s2guv367hftuti2b35uu9772"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service_request"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-32">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="provider_rating"
+                               constraintName="FKg7ocl22mp11e9x6anpl67up1l"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-33">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="service_request"
+                               constraintName="FKl6ss8rg30s25k6t3o34qt3u09"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-34">
+      <addForeignKeyConstraint baseColumnNames="service_delivery_offer_id"
+                               baseTableName="service_appointment"
+                               constraintName="FKmiaya2sjclkmswf7jkwovr3o5"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service_delivery_offer"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-35">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="jhi_persistent_token"
+                               constraintName="FKmogh0vmv89yg5kofe6n3t77ud"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-36">
+      <addForeignKeyConstraint baseColumnNames="service_category_id"
+                               baseTableName="service"
+                               constraintName="FKowiok9o2e4m07fvmifjnvwtd2"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="service_category"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-37">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="address"
+                               constraintName="FKp7p87799xffsml9cjrysfibvs"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="VS00434136 (generated)" id="1517572803810-38">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="service_provider_map"
+                               constraintName="FKpu21a0lf8ea6v0u65ft4jgu09"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+</databaseChangeLog>

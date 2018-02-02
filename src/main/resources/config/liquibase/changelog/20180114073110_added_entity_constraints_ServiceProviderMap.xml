@@ -8,11 +8,11 @@
     -->
     <changeSet id="20180114073110-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="provider_id"
+        <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="service_provider_map"
-                                 constraintName="fk_service_provider_map_provider_id"
+                                 constraintName="fk_service_provider_map_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="provider"/>
+                                 referencedTableName="jhi_user"/>
 
         <addForeignKeyConstraint baseColumnNames="service_id"
                                  baseTableName="service_provider_map"

@@ -7,6 +7,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.actuate.audit.AuditEventRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.localmarketplace.domain.ProviderRating;
@@ -43,6 +44,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 	@Autowired ServiceRequestRepository serviceRequestRepository;
 	@Autowired SocialService socialService;
 	@Autowired UserRepository userRepository;
+	@Autowired PasswordEncoder passwordEncoder;
 	
 	@Override
 	public void run(String... arg0) throws Exception {
@@ -79,6 +81,8 @@ public class DatabaseInitializer implements CommandLineRunner {
 		providerRating2.setAvgPunctualityRating(4L);
 		providerRating2.setLastUpdatedOn(Instant.now().toEpochMilli());
 		
+		provider1.setLogin("varun12");
+		provider1.setPassword(passwordEncoder.encode("sharma"));
 		provider1.setDescription("Plumbing services at your desk.");
 		provider1.setEmail("varunsharma12@outlook.com");
 		provider1.setFirstName("varun");
@@ -93,9 +97,11 @@ public class DatabaseInitializer implements CommandLineRunner {
 		providerRatings.add(providerRating1);
 		provider1.setRatings(providerRatings);
 		
-		provider2.setDescription("Plumbing services at your desk.");
-		provider2.setEmail("varunsharma12@outlook.com");
-		provider2.setFirstName("varun");
+		provider2.setLogin("savy12");
+		provider2.setPassword(passwordEncoder.encode("sharma"));
+		provider2.setDescription("Electrical services at your desk.");
+		provider2.setEmail("varunsharma7346@outlook.com");
+		provider2.setFirstName("savy");
 		provider2.setIsIndividual(true);
 		provider2.setIsRegisteredOffice(false);
 		provider2.setLastName("sharma");
@@ -112,11 +118,15 @@ public class DatabaseInitializer implements CommandLineRunner {
 		//Create customer objects and store them in database
 		Set<ServiceRequest> serviceRequests = new HashSet<>();
 		
+		customer1.setLogin("rahul26");
+		customer1.setPassword(passwordEncoder.encode("sharma"));
 		customer1.setFirstName("Rahul");
 		customer1.setEmail("varunronaldo6976@gmail.com");
 		customer1.setLastName("Sharma");
 		customer1.setMobileNumber(8446397639L);
 		customer1.setServiceRequests(serviceRequests);
+		customer1.setIsIndividual(true);
+		customer1.setIsRegisteredOffice(false);
 		
 		ServiceRequest serviceRequest1 = new ServiceRequest();
 		serviceRequest1.setUser(customer1);

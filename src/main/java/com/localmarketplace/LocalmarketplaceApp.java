@@ -1,29 +1,33 @@
 package com.localmarketplace;
 
-import com.localmarketplace.config.ApplicationProperties;
-import com.localmarketplace.config.DefaultProfileUtil;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Collection;
 
-import io.github.jhipster.config.JHipsterConstants;
+import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.*;
+import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.request.RequestContextListener;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.ServletRequestListener;
+import com.localmarketplace.config.ApplicationProperties;
+import com.localmarketplace.config.DefaultProfileUtil;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.Collection;
+import io.github.jhipster.config.JHipsterConstants;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
@@ -89,5 +93,24 @@ public class LocalmarketplaceApp {
     @Bean
     public RequestContextListener requestContextListener(){
     	return new RequestContextListener();
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+    	SecureRandom secureRandom = null;
+    	BCryptPasswordEncoder passwordEncoder = null;
+		try {
+			secureRandom = SecureRandom.getInstanceStrong();
+		} catch (NoSuchAlgorithmException e) {
+			
+			log.error("Exception Raised in class -> LocalmarketplaceApp: method -> passwordEncoder: message -> " + e.getMessage());
+		}
+		if(secureRandom != null){
+			passwordEncoder = new BCryptPasswordEncoder(5, secureRandom);
+		}else{
+			passwordEncoder = new BCryptPasswordEncoder(5);
+		}
+		
+    	return passwordEncoder;
     }
 }
