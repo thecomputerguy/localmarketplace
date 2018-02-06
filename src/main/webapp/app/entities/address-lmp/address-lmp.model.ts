@@ -8,7 +8,7 @@ export class AddressLmp implements BaseEntity {
         public state?: string,
         public country?: string,
         public zip?: number,
-        public customerId?: number,
+        public userId?: number,
     ) {
     }
 }

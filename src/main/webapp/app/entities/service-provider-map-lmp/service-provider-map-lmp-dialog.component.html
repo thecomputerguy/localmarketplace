@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="localmarketplaceApp.serviceProviderMap.provider" for="field_provider">Provider</label>
-            <select class="form-control" id="field_provider" name="provider" [(ngModel)]="serviceProviderMap.providerId" >
+            <select class="form-control" id="field_provider" name="provider" [(ngModel)]="serviceProviderMap.userId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="providerOption.id" *ngFor="let providerOption of providers; trackBy: trackProviderById">{{providerOption.id}}</option>
             </select>

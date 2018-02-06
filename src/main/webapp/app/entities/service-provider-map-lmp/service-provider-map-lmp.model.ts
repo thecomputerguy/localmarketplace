@@ -6,7 +6,7 @@ export class ServiceProviderMapLmp implements BaseEntity {
         public billingRatePerHour?: number,
         public experienceInMonths?: number,
         public serviceOfferingDescription?: string,
-        public providerId?: number,
+        public userId?: number,
         public serviceId?: number,
         public serviceDeliveryOffers?: BaseEntity[],
     ) {

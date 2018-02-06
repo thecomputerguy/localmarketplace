@@ -72,8 +72,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AjaxAuthenticationFailureHandler ajaxAuthenticationFailureHandler() {
-        return new AjaxAuthenticationFailureHandler();
+    public LocalMarketPlaceAjaxRequestFailureHandler ajaxAuthenticationFailureHandler() {
+        return new LocalMarketPlaceAjaxRequestFailureHandler();
     }
 
     @Bean

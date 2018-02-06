@@ -22,8 +22,8 @@
         </dd>
         <dt><span jhiTranslate="localmarketplaceApp.serviceRequest.customer">Customer</span></dt>
         <dd>
-            <div *ngIf="serviceRequest.customerId">
-                <a [routerLink]="['/customer-lmp', serviceRequest.customerId]">{{serviceRequest.customerId}}</a>
+            <div *ngIf="serviceRequest.userId">
+                <a [routerLink]="['/customer-lmp', serviceRequest.userId]">{{serviceRequest.userId}}</a>
             </div>
         </dd>
     </dl>

@@ -35,8 +35,8 @@
                 <td>{{address.country}}</td>
                 <td>{{address.zip}}</td>
                 <td>
-                    <div *ngIf="address.customerId">
-                        <a [routerLink]="['../customer-lmp', address.customerId  ]" >{{address.customerId}}</a>
+                    <div *ngIf="address.userId">
+                        <a [routerLink]="['../customer-lmp', address.userId  ]" >{{address.userId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

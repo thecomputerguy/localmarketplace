@@ -7,7 +7,7 @@ export class ServiceRequestLmp implements BaseEntity {
         public serviceRequiredOn?: any,
         public expectedStartTime?: any,
         public tentativeEffortsRequiredInHours?: number,
-        public customerId?: number,
+        public userId?: number,
         public serviceDeliveryOffers?: BaseEntity[],
     ) {
     }

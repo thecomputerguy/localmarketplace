@@ -10,7 +10,7 @@ export class ProviderRatingLmp implements BaseEntity {
         public avgPriceRating?: number,
         public avgOverallRating?: number,
         public lastUpdatedOn?: number,
-        public providerId?: number,
+        public userId?: number,
     ) {
     }
 }

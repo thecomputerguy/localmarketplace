@@ -35,7 +35,7 @@
         <dt><span jhiTranslate="localmarketplaceApp.providerRating.provider">Provider</span></dt>
         <dd>
             <div *ngIf="providerRating.providerId">
-                <a [routerLink]="['/provider-lmp', providerRating.providerId]">{{providerRating.providerId}}</a>
+                <a [routerLink]="['/provider-lmp', providerRating.userId]">{{providerRating.Id}}</a>
             </div>
         </dd>
     </dl>

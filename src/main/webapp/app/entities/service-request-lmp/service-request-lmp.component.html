@@ -21,7 +21,7 @@
             <th jhiSortBy="serviceRequiredOn"><span jhiTranslate="localmarketplaceApp.serviceRequest.serviceRequiredOn">Service Required On</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="expectedStartTime"><span jhiTranslate="localmarketplaceApp.serviceRequest.expectedStartTime">Expected Start Time</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="tentativeEffortsRequiredInHours"><span jhiTranslate="localmarketplaceApp.serviceRequest.tentativeEffortsRequiredInHours">Tentative Efforts Required In Hours</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="customerId"><span jhiTranslate="localmarketplaceApp.serviceRequest.customer">Customer</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userId"><span jhiTranslate="localmarketplaceApp.serviceRequest.customer">Customer</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -34,7 +34,7 @@
                 <td>{{serviceRequest.tentativeEffortsRequiredInHours}}</td>
                 <td>
                     <div *ngIf="serviceRequest.customerId">
-                        <a [routerLink]="['../customer-lmp', serviceRequest.customerId  ]" >{{serviceRequest.customerId}}</a>
+                        <a [routerLink]="['../customer-lmp', serviceRequest.userId  ]" >{{serviceRequest.userId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
