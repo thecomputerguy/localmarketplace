@@ -1,5 +1,8 @@
 package com.localmarketplace.service.impl;
 
+import com.localmarketplace.domain.User;
+import com.localmarketplace.repository.UserRepository;
+import com.localmarketplace.security.SecurityUtils;
 import com.localmarketplace.service.ServiceRequestService;
 import com.localmarketplace.domain.ServiceRequest;
 import com.localmarketplace.repository.ServiceRequestRepository;
@@ -11,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 
 /**
@@ -26,8 +31,11 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 
     private final ServiceRequestMapper serviceRequestMapper;
 
-    public ServiceRequestServiceImpl(ServiceRequestRepository serviceRequestRepository, ServiceRequestMapper serviceRequestMapper) {
+    private final UserRepository userRepository;
+
+    public ServiceRequestServiceImpl(ServiceRequestRepository serviceRequestRepository, UserRepository userRepository, ServiceRequestMapper serviceRequestMapper) {
         this.serviceRequestRepository = serviceRequestRepository;
+        this.userRepository = userRepository;
         this.serviceRequestMapper = serviceRequestMapper;
     }
 
@@ -55,7 +63,9 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     @Transactional(readOnly = true)
     public Page<ServiceRequestDTO> findAll(Pageable pageable) {
         log.debug("Request to get all ServiceRequests");
-        return serviceRequestRepository.findAll(pageable)
+        Optional<String> login = SecurityUtils.getCurrentUserLogin();
+        Optional<User> user = userRepository.findOneByLogin(login.get());
+        return serviceRequestRepository.findAllByUserId(user.get().getId(),pageable)
             .map(serviceRequestMapper::toDto);
     }
 

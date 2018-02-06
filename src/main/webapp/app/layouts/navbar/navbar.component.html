@@ -35,13 +35,13 @@
                             <span jhiTranslate="global.menu.entities.providerLmp">Provider Lmp</span>
                         </a>
                     </li> -->
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER']">
                         <a class="dropdown-item" routerLink="provider-rating-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.providerRatingLmp">Provider Rating Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER']">
                         <a class="dropdown-item" routerLink="provider-review-log-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.providerReviewLogLmp">Provider Review Log Lmp</span>
@@ -53,13 +53,13 @@
                             <span jhiTranslate="global.menu.entities.serviceCategoryLmp">Service Category Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER']">
                         <a class="dropdown-item" routerLink="service-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.serviceLmp">Service Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_PROVIDER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_PROVIDER']">
                         <a class="dropdown-item" routerLink="service-provider-map-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.serviceProviderMapLmp">Service Provider Map Lmp</span>
@@ -71,25 +71,25 @@
                             <span jhiTranslate="global.menu.entities.customerLmp">Customer Lmp</span>
                         </a>
                     </li> -->
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER","ROLE_PROVIDER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER','ROLE_PROVIDER']">
                         <a class="dropdown-item" routerLink="address-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.addressLmp">Address Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_PROVIDER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_PROVIDER']">
                         <a class="dropdown-item" routerLink="service-delivery-offer-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.serviceDeliveryOfferLmp">Service Delivery Offer Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER']">
                         <a class="dropdown-item" routerLink="service-request-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.serviceRequestLmp">Service Request Lmp</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority=["ROLE_ADMIN","ROLE_CUSTOMER","ROLE_PROVIDER"]>
+                    <li *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_CUSTOMER','ROLE_PROVIDER']">
                         <a class="dropdown-item" routerLink="service-appointment-lmp" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.serviceAppointmentLmp">Service Appointment Lmp</span>
