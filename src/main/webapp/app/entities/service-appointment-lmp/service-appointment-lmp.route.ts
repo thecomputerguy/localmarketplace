@@ -32,7 +32,7 @@ export const serviceAppointmentRoute: Routes = [
             'pagingParams': ServiceAppointmentLmpResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_PROVIDER'],
             pageTitle: 'localmarketplaceApp.serviceAppointment.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -40,7 +40,7 @@ export const serviceAppointmentRoute: Routes = [
         path: 'service-appointment-lmp/:id',
         component: ServiceAppointmentLmpDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_PROVIDER'],
             pageTitle: 'localmarketplaceApp.serviceAppointment.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const serviceAppointmentPopupRoute: Routes = [
         path: 'service-appointment-lmp-new',
         component: ServiceAppointmentLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.serviceAppointment.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const serviceAppointmentPopupRoute: Routes = [
         path: 'service-appointment-lmp/:id/edit',
         component: ServiceAppointmentLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.serviceAppointment.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const serviceAppointmentPopupRoute: Routes = [
         path: 'service-appointment-lmp/:id/delete',
         component: ServiceAppointmentLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.serviceAppointment.home.title'
         },
         canActivate: [UserRouteAccessService],

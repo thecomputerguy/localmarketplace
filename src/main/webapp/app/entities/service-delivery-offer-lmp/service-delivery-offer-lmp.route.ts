@@ -11,7 +11,7 @@ export const serviceDeliveryOfferRoute: Routes = [
         path: 'service-delivery-offer-lmp',
         component: ServiceDeliveryOfferLmpComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_PROVIDER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.serviceDeliveryOffer.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -19,7 +19,7 @@ export const serviceDeliveryOfferRoute: Routes = [
         path: 'service-delivery-offer-lmp/:id',
         component: ServiceDeliveryOfferLmpDetailComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_PROVIDER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.serviceDeliveryOffer.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const serviceDeliveryOfferPopupRoute: Routes = [
         path: 'service-delivery-offer-lmp-new',
         component: ServiceDeliveryOfferLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_PROVIDER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceDeliveryOffer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const serviceDeliveryOfferPopupRoute: Routes = [
         path: 'service-delivery-offer-lmp/:id/edit',
         component: ServiceDeliveryOfferLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_PROVIDER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceDeliveryOffer.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const serviceDeliveryOfferPopupRoute: Routes = [
         path: 'service-delivery-offer-lmp/:id/delete',
         component: ServiceDeliveryOfferLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_PROVIDER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceDeliveryOffer.home.title'
         },
         canActivate: [UserRouteAccessService],

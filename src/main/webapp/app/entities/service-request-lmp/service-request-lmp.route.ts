@@ -32,7 +32,7 @@ export const serviceRequestRoute: Routes = [
             'pagingParams': ServiceRequestLmpResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceRequest.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -40,7 +40,7 @@ export const serviceRequestRoute: Routes = [
         path: 'service-request-lmp/:id',
         component: ServiceRequestLmpDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceRequest.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const serviceRequestPopupRoute: Routes = [
         path: 'service-request-lmp-new',
         component: ServiceRequestLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceRequest.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const serviceRequestPopupRoute: Routes = [
         path: 'service-request-lmp/:id/edit',
         component: ServiceRequestLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceRequest.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const serviceRequestPopupRoute: Routes = [
         path: 'service-request-lmp/:id/delete',
         component: ServiceRequestLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceRequest.home.title'
         },
         canActivate: [UserRouteAccessService],

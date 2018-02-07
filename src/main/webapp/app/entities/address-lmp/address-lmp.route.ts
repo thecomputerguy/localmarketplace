@@ -32,7 +32,7 @@ export const addressRoute: Routes = [
             'pagingParams': AddressLmpResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.address.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const addressPopupRoute: Routes = [
         path: 'address-lmp-new',
         component: AddressLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.address.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const addressPopupRoute: Routes = [
         path: 'address-lmp/:id/edit',
         component: AddressLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.address.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const addressPopupRoute: Routes = [
         path: 'address-lmp/:id/delete',
         component: AddressLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.address.home.title'
         },
         canActivate: [UserRouteAccessService],

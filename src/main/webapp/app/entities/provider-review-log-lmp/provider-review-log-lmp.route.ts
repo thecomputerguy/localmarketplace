@@ -32,7 +32,7 @@ export const providerReviewLogRoute: Routes = [
             'pagingParams': ProviderReviewLogLmpResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.providerReviewLog.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -40,7 +40,7 @@ export const providerReviewLogRoute: Routes = [
         path: 'provider-review-log-lmp/:id',
         component: ProviderReviewLogLmpDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.providerReviewLog.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const providerReviewLogPopupRoute: Routes = [
         path: 'provider-review-log-lmp-new',
         component: ProviderReviewLogLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.providerReviewLog.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const providerReviewLogPopupRoute: Routes = [
         path: 'provider-review-log-lmp/:id/edit',
         component: ProviderReviewLogLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.providerReviewLog.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const providerReviewLogPopupRoute: Routes = [
         path: 'provider-review-log-lmp/:id/delete',
         component: ProviderReviewLogLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER'],
             pageTitle: 'localmarketplaceApp.providerReviewLog.home.title'
         },
         canActivate: [UserRouteAccessService],

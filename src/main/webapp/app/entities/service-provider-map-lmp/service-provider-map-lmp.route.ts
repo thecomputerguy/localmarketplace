@@ -11,7 +11,7 @@ export const serviceProviderMapRoute: Routes = [
         path: 'service-provider-map-lmp',
         component: ServiceProviderMapLmpComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceProviderMap.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -19,7 +19,7 @@ export const serviceProviderMapRoute: Routes = [
         path: 'service-provider-map-lmp/:id',
         component: ServiceProviderMapLmpDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_CUSTOMER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceProviderMap.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const serviceProviderMapPopupRoute: Routes = [
         path: 'service-provider-map-lmp-new',
         component: ServiceProviderMapLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceProviderMap.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const serviceProviderMapPopupRoute: Routes = [
         path: 'service-provider-map-lmp/:id/edit',
         component: ServiceProviderMapLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceProviderMap.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const serviceProviderMapPopupRoute: Routes = [
         path: 'service-provider-map-lmp/:id/delete',
         component: ServiceProviderMapLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceProviderMap.home.title'
         },
         canActivate: [UserRouteAccessService],

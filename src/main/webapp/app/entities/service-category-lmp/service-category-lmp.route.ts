@@ -11,7 +11,7 @@ export const serviceCategoryRoute: Routes = [
         path: 'service-category-lmp',
         component: ServiceCategoryLmpComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_CUSTOMER','ROLE_PROVIDER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceCategory.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const serviceCategoryPopupRoute: Routes = [
         path: 'service-category-lmp-new',
         component: ServiceCategoryLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceCategory.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -41,7 +41,7 @@ export const serviceCategoryPopupRoute: Routes = [
         path: 'service-category-lmp/:id/edit',
         component: ServiceCategoryLmpPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceCategory.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -51,7 +51,7 @@ export const serviceCategoryPopupRoute: Routes = [
         path: 'service-category-lmp/:id/delete',
         component: ServiceCategoryLmpDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
             pageTitle: 'localmarketplaceApp.serviceCategory.home.title'
         },
         canActivate: [UserRouteAccessService],
