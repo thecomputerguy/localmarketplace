@@ -33,7 +33,7 @@
                 <td>{{serviceRequest.expectedStartTime | date:'medium'}}</td>
                 <td>{{serviceRequest.tentativeEffortsRequiredInHours}}</td>
                 <td>
-                    <div *ngIf="serviceRequest.customerId">
+                    <div *ngIf="serviceRequest.userId">
                         <a [routerLink]="['../customer-lmp', serviceRequest.userId  ]" >{{serviceRequest.userId}}</a>
                     </div>
                 </td>
